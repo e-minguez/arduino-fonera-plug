@@ -22,6 +22,7 @@ La fonera se ha flasheado con OpenWRT 8.09.2 e instalado lighttpd (vía opkg) pa
 - temperaturas.sh
 - ac.sh
 - estados.sh
+
 La configuración de lighttpd incluye la activación del modulo mod_cgi para poder ejecutar los scripts sh (la fonera tiene hardware muy limitado, y con sh es más que suficiente), y mod_auth para proteger el acceso vía usuario/password (ambos módulos instalables vía opkg).
 El puerto serie de la fonera con OpenWRT por defecto no funcionaba bien, con lo cual hay que utilizar stty para configurar el mismo. El problema, es que al ser tan limitado el hardware, no había espacio suficiente para instalar el paquete "coreutils", por lo tanto, tuve que descargar el paquete, descomprimirlo y copiar el ejecutable stty a /usr/bin (incluido por comodidad).
 La configuración del puerto serie se realiza con el siguiente comando:
