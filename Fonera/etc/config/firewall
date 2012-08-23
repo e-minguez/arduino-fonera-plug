@@ -1,0 +1,48 @@
+
+config 'defaults'
+	option 'syn_flood' '1'
+	option 'input' 'ACCEPT'
+	option 'output' 'ACCEPT'
+	option 'forward' 'REJECT'
+
+config 'zone'
+	option 'name' 'lan'
+	option 'input' 'ACCEPT'
+	option 'output' 'ACCEPT'
+	option 'forward' 'REJECT'
+
+config 'zone'
+	option 'name' 'wan'
+	option 'input' 'REJECT'
+	option 'output' 'ACCEPT'
+	option 'forward' 'REJECT'
+	option 'masq' '1'
+	option 'mtu_fix' '1'
+
+config 'forwarding'
+	option 'src' 'lan'
+	option 'dest' 'wan'
+	option 'mtu_fix' '0'
+
+config 'rule'
+	option 'src' 'wan'
+	option 'proto' 'udp'
+	option 'dest_port' '68'
+	option 'target' 'ACCEPT'
+
+config 'include'
+	option 'path' '/etc/firewall.user'
+
+config redirect
+        option src              wan
+        option src_dport        80
+        option dest             lan
+        option dest_ip          <THIS HOST>
+        option dest_port        81
+        option proto            tcp
+                                                
+config rule
+	option src              wan
+	option dest_port        81
+	option target           ACCEPT
+	option proto            tcp
