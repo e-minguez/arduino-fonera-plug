@@ -1,8 +1,10 @@
 arduino-fonera-plug
 ===================
 
-El proposito de este proyecto es poder encender y apagar un enchufe estándar (220V) vía internet utilizando una página web para ello. Además, cada X segundos (x=60), se monitorizará la temperatura actual.
+El propósito de este proyecto es poder encender y apagar un enchufe estándar (220V) vía internet utilizando una página web para ello. Además, cada X segundos (x=60), se monitorizará la temperatura actual.
+
 En el caso de no querer utilizar la web, se utilizará un interruptor pulsador para accionarlo.
+
 Todos los accionamientos, así como las temperaturas, serán registradas en ficheros de texto separados con comas (formato csv) para poder ser tratados en un futuro y sacar gráficas de los mismos.
 
 Los materiales utilizados son:
@@ -26,6 +28,7 @@ La fonera se ha flasheado con OpenWRT 8.09.2 e instalado lighttpd (vía opkg) pa
 La configuración de lighttpd incluye la activación de los modulos:
 * mod_cgi - para poder ejecutar los scripts sh (la fonera tiene hardware muy limitado, y con sh es más que suficiente)
 * mod_auth - para proteger el acceso vía usuario/password (ambos módulos instalables vía opkg).
+
 El puerto serie de la fonera con OpenWRT por defecto no se que valores utiliza, con lo cual hay que utilizar stty para configurar el mismo.
 
 El problema, es que al ser tan limitado el hardware, no había espacio suficiente para instalar el paquete "coreutils", por lo tanto, tuve que descargar el paquete, descomprimirlo y copiar el ejecutable stty a /usr/bin (incluido por comodidad).
