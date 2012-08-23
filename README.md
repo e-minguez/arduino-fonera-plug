@@ -38,6 +38,6 @@ El cual he incluido en el fichero /etc/rc.local (chapuza, pero resolutivo!), jun
 
 La zona horaria por defecto no viene configurada, con lo cual es necesario configurarla en el fichero <NOMEACUERDO>
 
-La lectura de la temperatura se relaliza con el script "leer_temp.sh", que se ejecuta en segundo plano desde el rc.local.
+La lectura de la temperatura se relaliza con el script "leer_temp.sh", que se ejecuta en segundo plano desde el /etc/rc.local.
 
 <...>
